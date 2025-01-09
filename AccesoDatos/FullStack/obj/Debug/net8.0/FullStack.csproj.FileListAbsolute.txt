@@ -1,0 +1,15 @@
+C:\Projects\FULLSTACK\AccesoDatos\FullStack\bin\Debug\net8.0\FullStack.deps.json
+C:\Projects\FULLSTACK\AccesoDatos\FullStack\bin\Debug\net8.0\FullStack.runtimeconfig.json
+C:\Projects\FULLSTACK\AccesoDatos\FullStack\bin\Debug\net8.0\FullStack.dll
+C:\Projects\FULLSTACK\AccesoDatos\FullStack\bin\Debug\net8.0\FullStack.pdb
+C:\Projects\FULLSTACK\AccesoDatos\FullStack\obj\Debug\net8.0\FullStack.csproj.AssemblyReference.cache
+C:\Projects\FULLSTACK\AccesoDatos\FullStack\obj\Debug\net8.0\FullStack.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\FULLSTACK\AccesoDatos\FullStack\obj\Debug\net8.0\FullStack.AssemblyInfoInputs.cache
+C:\Projects\FULLSTACK\AccesoDatos\FullStack\obj\Debug\net8.0\FullStack.AssemblyInfo.cs
+C:\Projects\FULLSTACK\AccesoDatos\FullStack\obj\Debug\net8.0\FullStack.csproj.CoreCompileInputs.cache
+C:\Projects\FULLSTACK\AccesoDatos\FullStack\obj\Debug\net8.0\FullStack.sourcelink.json
+C:\Projects\FULLSTACK\AccesoDatos\FullStack\obj\Debug\net8.0\FullStack.dll
+C:\Projects\FULLSTACK\AccesoDatos\FullStack\obj\Debug\net8.0\refint\FullStack.dll
+C:\Projects\FULLSTACK\AccesoDatos\FullStack\obj\Debug\net8.0\FullStack.pdb
+C:\Projects\FULLSTACK\AccesoDatos\FullStack\obj\Debug\net8.0\FullStack.genruntimeconfig.cache
+C:\Projects\FULLSTACK\AccesoDatos\FullStack\obj\Debug\net8.0\ref\FullStack.dll
