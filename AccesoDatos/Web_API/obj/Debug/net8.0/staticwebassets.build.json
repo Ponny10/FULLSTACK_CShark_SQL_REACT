@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "CyiP/OEE0EwLrfpGCuZBNSXRy/ssJ525qWH5jG26xrQ=",
+  "Source": "Web_API",
+  "BasePath": "_content/Web_API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
