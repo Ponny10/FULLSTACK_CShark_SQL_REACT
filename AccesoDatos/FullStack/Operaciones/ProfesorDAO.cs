@@ -10,7 +10,7 @@ namespace FullStack.Operaciones
 {
     public class ProfesorDAO
     {
-        public CursoFullstackContext context = new CursoFullstackContext();
+        private CursoFullstackContext context = new CursoFullstackContext();
 
         // Lógica de logueo para profesor
         public Profesor login(string usuario, string password)
