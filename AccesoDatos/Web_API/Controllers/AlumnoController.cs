@@ -23,10 +23,23 @@ namespace Web_API.Controllers
             return alumnoDAO.IdAlumno(id);
         }
 
-        [HttpPut("update")]
+        [HttpPut("actualizarAlumno")]
         public bool updateAlumno([FromBody] Alumno alumno)
         {
             return alumnoDAO.ActualizarAlumno(alumno.Id, alumno.Dni, alumno.Nombre, alumno.Direccion, alumno.Edad, alumno.Email);
+        }
+
+        [HttpPost("agregarAlumno")]
+        public bool agregarAlumno([FromBody] Alumno alumno, int id_asig)
+        {
+            return alumnoDAO.insertarMatricularAlumno(
+                alumno.Dni, alumno.Nombre, alumno.Direccion, alumno.Edad, alumno.Email, id_asig);
+        }
+
+        [HttpDelete("eliminarAlumno")]
+        public bool eliminarAlumno(int id)
+        {
+            return alumnoDAO.eliminarAlumno(id);
         }
 
     }

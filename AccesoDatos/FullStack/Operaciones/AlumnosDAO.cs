@@ -25,7 +25,13 @@ namespace FullStack.Operaciones
         public Alumno IdAlumno(int id)
         {
             // return context.Alumnos.Where(a => a.Id == id).FirstOrDefault();
-            return context.Alumnos.SingleOrDefault(a => a.Id == id);
+            return context.Alumnos.Where(a => a.Id == id).FirstOrDefault();
+        }
+
+        // Seleccionar por DNI alumno
+        public Alumno DniAlumno(string dniAlumno)
+        {
+            return context.Alumnos.Where(a => a.Dni == dniAlumno).FirstOrDefault();
         }
 
         // Insertar nuevo alumno a la BD
@@ -60,25 +66,20 @@ namespace FullStack.Operaciones
             var existeAlumno = IdAlumno(id);
             if (existeAlumno != null)
             {
-                Console.WriteLine("Valor de ExisteAlumno => " + existeAlumno.Id);
                 // Si el alumno existe, continua el seteo de los datos
-                Console.WriteLine("Valor de Alumno Antes => " + existeAlumno.Direccion);
                 existeAlumno.Dni = dni;
                 existeAlumno.Direccion = direccion;
                 existeAlumno.Edad = edad;
                 existeAlumno.Email = email;
                 existeAlumno.Nombre = nombre;
-                Console.WriteLine("Valor de alumno depsués => " + existeAlumno.Direccion);
 
                 try
                 {
-                    Console.WriteLine("Se aguardaron correctamente los datos.");
                     context.SaveChanges();
                     return true;
                 }
-                catch (Exception e)
+                catch
                 {
-                    Console.WriteLine("Fallo la actualizada." + e.Message);
                     return false;
                 }
             }
@@ -129,6 +130,87 @@ namespace FullStack.Operaciones
                         };
 
             return query.ToList();
+        }
+
+        // Agregar y matricular alumno
+        public bool insertarMatricularAlumno(string dni, string nombre, string direccion, int edad, string email, int id_asig)
+        {
+            try
+            {
+                // Verificar si existe el dni del alumno
+                var existeAlumno = DniAlumno(dni);
+
+                if (existeAlumno == null)
+                {
+                    // Si no existe, agregar alumno
+                    NuevoAlumno(dni, nombre, direccion, edad, email);
+
+                    // Inmediatamente obtener el id del registro de alumno
+                    var alumnoRecienAgregado = DniAlumno(dni);
+
+                    Matricula matricula = new Matricula();
+                    matricula.AlumnoId = alumnoRecienAgregado.Id;
+                    matricula.AsignaturaId = id_asig;
+
+                    context.Matriculas.Add(matricula);
+                    context.SaveChanges();
+
+                }
+                else
+                {
+                    Matricula matricula = new Matricula();
+                    matricula.AlumnoId = existeAlumno.Id;
+                    matricula.AsignaturaId = id_asig;
+
+                    context.Matriculas.Add(matricula);
+                    context.SaveChanges();
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        // Eliminar alumno
+        public bool eliminarAlumno(int id)
+        {
+            try
+            {
+                // 1: Verificar que el alumno exista
+                var existealumno = context.Alumnos.Where(a => a.Id == id).FirstOrDefault();
+                Console.WriteLine("Valor de existeAlumno = " + existealumno + " Es falso = " + existealumno == null);
+
+                if(existealumno == null)
+                {
+                    return false;
+                }
+
+                // 2: Obtener las matriculaciones del alumno
+                var matriculas = context.Matriculas.Where(m => m.AlumnoId == id).ToList();
+
+                // 3: Recorrer y eliminar las calificaciones de cada matricula
+                foreach(Matricula m in matriculas)
+                {
+                    // 4: Obtener las calificaiones cuyo idMatricula sea igual a m.matriculaID
+                    var calificaciones = context.Calificacions.Where(c => c.MatriculaId == m.Id).ToList();
+                    context.Calificacions.RemoveRange(calificaciones);
+                }
+
+                // 5: Borar matrículas y Alumno
+                context.Matriculas.RemoveRange(matriculas);
+                context.Alumnos.Remove(existealumno);
+
+                context.SaveChanges();
+
+                return true;
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("Error => " + e.Message);
+                return false;
+            }
         }
     }
 }

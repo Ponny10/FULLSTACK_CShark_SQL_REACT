@@ -1,6 +1,63 @@
 [
   {
     "ContainingType": "Web_API.Controllers.AlumnoController",
+    "Method": "updateAlumno",
+    "RelativePath": "api/actualizarAlumno",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "alumno",
+        "Type": "FullStack.Models.Alumno",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Web_API.Controllers.AlumnoController",
+    "Method": "agregarAlumno",
+    "RelativePath": "api/agregarAlumno",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "alumno",
+        "Type": "FullStack.Models.Alumno",
+        "IsRequired": true
+      },
+      {
+        "Name": "id_asig",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Web_API.Controllers.AlumnoController",
     "Method": "getAlumno",
     "RelativePath": "api/alumno",
     "HttpMethod": "GET",
@@ -52,16 +109,74 @@
     ]
   },
   {
-    "ContainingType": "Web_API.Controllers.PruebaController",
-    "Method": "pruebaApi",
-    "RelativePath": "api/prueba",
+    "ContainingType": "Web_API.Controllers.CalificacionController",
+    "Method": "agregarCalificacion",
+    "RelativePath": "api/calificacion",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cal",
+        "Type": "FullStack.Models.Calificacion",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Web_API.Controllers.CalificacionController",
+    "Method": "eliminarCalificacion",
+    "RelativePath": "api/calificacion",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Web_API.Controllers.CalificacionController",
+    "Method": "get",
+    "RelativePath": "api/calificaciones",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "matriculaId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
-        "Type": "System.String",
+        "Type": "System.Collections.Generic.List\u00601[[FullStack.Models.Calificacion, FullStack, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -73,21 +188,41 @@
   },
   {
     "ContainingType": "Web_API.Controllers.AlumnoController",
-    "Method": "updateAlumno",
-    "RelativePath": "api/update",
-    "HttpMethod": "PUT",
+    "Method": "eliminarAlumno",
+    "RelativePath": "api/eliminarAlumno",
+    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "alumno",
-        "Type": "FullStack.Models.Alumno",
-        "IsRequired": true
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
       {
         "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Web_API.Controllers.PruebaController",
+    "Method": "pruebaApi",
+    "RelativePath": "api/prueba",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
         "MediaTypes": [
           "text/plain",
           "application/json",
