@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Web_API.Controllers
 {
+    [Route("api")]
+    [ApiController]
     public class ProfesorController : Controller
     {
         // Instanciar las operaciones de profesor
@@ -11,13 +13,13 @@ namespace Web_API.Controllers
 
         // Endpoint para autenticar el profesor
         [HttpPost("autenticacion")]
-        public string login([FromBody] Profesor propsProfesor)
+        public Profesor login([FromBody] Profesor propsProfesor)
         {
             var profesor = profesorDAO.login(propsProfesor.Usuario, propsProfesor.Pass);
 
             if (profesor != null)
             {
-                return profesor.Nombre;
+                return profesor;
             }
             else
             {

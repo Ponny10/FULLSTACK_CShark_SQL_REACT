@@ -116,7 +116,7 @@ namespace FullStack.Operaciones
         {
             var query = from a in context.Alumnos
                         join m in context.Matriculas on a.Id equals m.AlumnoId
-                        join s in context.Asignaturas on m.Id equals s.Id
+                        join s in context.Asignaturas on m.AsignaturaId equals s.Id
                         where s.Profesor == usuario
                         select new AlumnoProfesor
                         {
@@ -126,7 +126,8 @@ namespace FullStack.Operaciones
                             Direccion = a.Direccion,
                             Edad = a.Edad,
                             Email = a.Email,
-                            Asignatura = s.Nombre,
+                            Asignatura = s.Id,
+                            MatriculaId = m.Id,
                         };
 
             return query.ToList();

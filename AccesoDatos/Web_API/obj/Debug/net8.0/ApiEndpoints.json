@@ -109,6 +109,32 @@
     ]
   },
   {
+    "ContainingType": "Web_API.Controllers.ProfesorController",
+    "Method": "login",
+    "RelativePath": "api/autenticacion",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "propsProfesor",
+        "Type": "FullStack.Models.Profesor",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "FullStack.Models.Profesor",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "Web_API.Controllers.CalificacionController",
     "Method": "agregarCalificacion",
     "RelativePath": "api/calificacion",
@@ -220,32 +246,6 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.String",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Web_API.Controllers.ProfesorController",
-    "Method": "login",
-    "RelativePath": "autenticacion",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "propsProfesor",
-        "Type": "FullStack.Models.Profesor",
-        "IsRequired": true
-      }
-    ],
     "ReturnTypes": [
       {
         "Type": "System.String",

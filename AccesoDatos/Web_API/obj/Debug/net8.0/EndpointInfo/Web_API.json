@@ -369,7 +369,7 @@
         }
       }
     },
-    "/autenticacion": {
+    "/api/autenticacion": {
       "post": {
         "tags": [
           "Profesor"
@@ -399,17 +399,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/Profesor"
                 }
               },
               "application/json": {
                 "schema": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/Profesor"
                 }
               },
               "text/json": {
                 "schema": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/Profesor"
                 }
               }
             }
@@ -510,10 +510,14 @@
             "nullable": true
           },
           "asignatura": {
-            "type": "string",
-            "nullable": true
+            "type": "integer",
+            "format": "int32"
           },
           "edad": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "matriculaId": {
             "type": "integer",
             "format": "int32"
           }
